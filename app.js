@@ -141,30 +141,7 @@ function dragElement(elmnt) {
     }
   }
 
-  const list_items = [
-    "Item 1",
-    "Item 2",
-    "Item 3",
-    "Item 4",
-    "Item 5",
-    "Item 6",
-    "Item 7",
-    "Item 8",
-    "Item 9",
-    "Item 10",
-    "Item 11",
-    "Item 12",
-    "Item 13",
-    "Item 14",
-    "Item 15",
-    "Item 16",
-    "Item 17",
-    "Item 18",
-    "Item 19",
-    "Item 20",
-    "Item 21",
-    "Item 22"
-  ];
+ 
   
 
 fetch("response.json").then(data => data.json()).then(function(news){
@@ -197,7 +174,14 @@ function DisplayList (items, wrapper, rows_per_page, page) {
 
     
     item_element.innerHTML = `<div class="cardcontainer">`+
-    `<div class="photo"> <img src=${paginatedItems[i].urlToImage}></div>`+
+    `<div class="photo"> <a href="${paginatedItems[i].url}"><img src=${paginatedItems[i].urlToImage}></div></a>`+
+    `<div class="content">`+
+    `<p class="txt4">${paginatedItems[i].title}</p>`+
+    `<p class="txt2">${paginatedItems[i].content}</p>`+
+    `<p class="txt3"><i class="far fa-clock"></i>${paginatedItems[i].publishedAt}</p>`+
+    `<p class="txt3><span class="author"><i class="far fa-user"></i>${paginatedItems[i].author}</span></p>`+
+    `</div>`+
+    
     `</div>`;
 		
 		wrapper.appendChild(item_element);
